@@ -24,6 +24,6 @@ jobs:
       - name: Run Vulture
         run:  make vulture
       - name: Run tests
-        run:  make tests
+        run:  make tests-unitaires
 
 
