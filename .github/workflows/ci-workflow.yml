@@ -24,6 +24,6 @@ jobs:
       - name: Run Vulture
         run:  make vulture
       - name: Run tests
-        run:  "Trainee should add command to run test"
+        run:  make tests
 
 
