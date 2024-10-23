@@ -66,3 +66,11 @@ airflow-webserver:
 airflow-scheduler:
 	echo "AIRFLOW_HOME is: ${AIRFLOW_HOME}"
 	airflow scheduler
+
+.PHONY: linter  ## Lint the code with flake 8 and disable E402 errors
+linter:
+	flake8 --ignore=E402
+
+.PHONY: vulture  ## vulture formation_indus_ds_avance
+vulture:
+	vulture formation_indus_ds_avancee --min-confidence 100
