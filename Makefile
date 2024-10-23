@@ -73,4 +73,4 @@ linter:
 
 .PHONY: vulture  ## vulture formation_indus_ds_avance
 vulture:
-	vulture formation_indus_ds_avancee
+	vulture formation_indus_ds_avancee --min-confidence 100
