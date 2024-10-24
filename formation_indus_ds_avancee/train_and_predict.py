@@ -1,9 +1,12 @@
 import os
 import time
+from datetime import datetime
+
 
 import joblib
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
+
 
 
 def train_model_with_io(features_path: str, model_registry_folder: str) -> None:
@@ -18,7 +21,9 @@ def train_model(features: pd.DataFrame, model_registry_folder: str) -> None:
     y = features[target]
     model = RandomForestRegressor(n_estimators=1, max_depth=10, n_jobs=1)
     model.fit(X, y)
-    joblib.dump(model, os.path.join(model_registry_folder, 'model.joblib'))
+    now = datetime.now()
+    model_name = now.strftime("experiment_%d_%m_%Y_%H_%M_%S")
+    joblib.dump(model, os.path.join(model_registry_folder, f"model_{model_name}.joblib"))
 
 
 def predict_with_io(features_path: str, model_path: str, predictions_folder: str) -> None:
